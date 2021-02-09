@@ -5,7 +5,7 @@ import { ViewPropertyComponent } from './components/view-property/view-property.
 
 const routes: Routes = [
   { path: '', component: SearchHotelComponent },
-  { path: 'viewProperty', component: ViewPropertyComponent}
+  { path: 'viewProperty/:pId', component: ViewPropertyComponent}
 ];
 
 @NgModule({

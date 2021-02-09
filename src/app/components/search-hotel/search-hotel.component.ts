@@ -18,7 +18,7 @@ export class SearchHotelComponent implements OnInit {
   readonly checkInDate: any = moment(new Date()).format('YYYY-MM-DD');
   readonly checkOutDate: any = moment(new Date(new Date().setMonth(4))).format('YYYY-MM-DD');
   readonly roomsType: any[] = environment.roomsType;
-  public searchHotelList: Observable<any>;
+  public searchHotelList: any[] = []
   public searchForm: FormGroup;
 
   constructor(private _formbuilder: FormBuilder,
@@ -38,7 +38,14 @@ export class SearchHotelComponent implements OnInit {
     if (this.searchForm.invalid) {
       return;
     }
-    this.searchHotelList = this._searchHotelService.getSearchHotelList(this.searchForm.value);
+    const searchFormValues: { checkInDate: string, checkOutDate: string, typeOfTenant: string} = {
+      checkInDate: this.convertDateToString(this.searchForm.value.checkInDate),
+      checkOutDate: this.convertDateToString(this.searchForm.value.checkOutDate),
+      typeOfTenant: this.searchForm.value.typeOfTenant
+    }
+    this._searchHotelService.getSearchHotelList(searchFormValues).subscribe((response: any) => {
+      this.searchHotelList = response;
+    });
     //   this._searchHotelService.getSearchHotelList(this.searchForm.value)
     //     .pipe(map((result: any) => {
     //       return result.map((inner: any) => {
@@ -60,8 +67,13 @@ export class SearchHotelComponent implements OnInit {
     return of(this._searchHotelService.getpropertyImages(propertyId)).pipe((catchError((error: any) => of('throw error occured'))));
   }
 
-  onNavigateToViewProperty() {
-    this._router.navigate(['/viewProperty']);
+  onNavigateToViewProperty(propertyId: string) {
+    if (!propertyId) return;
+    this._router.navigate(['/viewProperty', propertyId]);
+  }
+
+  convertDateToString(Date: any): string {
+      return moment(Date).format('YYYY-MM-DD');
   }
 }
 

@@ -16,7 +16,6 @@ export class SearchHotelService {
   }
 
   getpropertyImages(propertyId: string): Observable<any> {
-    debugger;
     return this._httpClient.get('http://roomstoinn.com:9090/getPropertyImage/propertyId');
   }
 }

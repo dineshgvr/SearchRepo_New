@@ -1,11 +1,11 @@
 .banner-container {
-    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(../../../assets/images/exteranl-images/background.png);
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(../../../assets/images/exteranl-images/background2.png);
     background-size: cover;
 }
 
 
 .search-panel .search-section .search-box .left-part .search-body {
-    padding: 24px 10px 30px 10px;
+    padding: 24px 10px 20px 10px;
 }
 
 .dp {
@@ -33,10 +33,43 @@ select {
 input, h6 {
     color: #3e5a5e !important;
 }
-.search-section {
-    margin-top: -80px;
-}
 
 .home_section .home .home-content  {
     padding-top: 22px;
+}
+
+section {
+    padding-top: 0px;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+.qty-box select {
+    width: 100%;
+}
+
+.hotel-location-lbl {
+    margin-top: 16px;
+}
+
+.search-section .search-box .left-part .search-body .form-control {
+    padding: 6px;
+}
+
+#searchBtn {
+    color: white;
+}
+#searchBtn:hover {
+    color: red;
+}
+
+.special-box {
+    box-shadow: 0px 0px 10px 2px gray;
+    cursor: pointer;
+}
+
+.special-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 18px 10px grey;
 }

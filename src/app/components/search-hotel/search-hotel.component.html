@@ -45,43 +45,44 @@
 <section class="search-section" [formGroup]="searchForm">
     <div class="container">
         <div class="row">
-            <div class="">
-                <div class="search-panel" id="searchBar" style="box-shadow: 3px 0px 10px 4px grey;">
-                    <div class="search-section shadow">
-                        <div class="search-box">
-                            <div class="left-part flex-sm-row">
-                                <div class="search-body title-hotel pt-3 flex-grow-1">
-                                    <h6>hotel</h6>
-                                    <input type="text" name="text" placeholder="North Carolina" class="form-control ">
+            <div class="search-panel" id="searchBar">
+                <div class="search-section shadow">
+                    <div class="search-box">
+                        <div class="left-part flex-sm-row">
+                            <div class="search-body title-hotel" style="width: 20vw;">
+                                <h6>hotel</h6>
+                                <div class="">
+                                    <label style="font-size: 20px; font-weight: 800; color: #3e5a5e;">North
+                                        Carolina</label>
                                 </div>
-                                <div class="search-body pt-3 flex-grow-1" > 
-                                    <h6>check in</h6>
-                                    <input type="text"
-                                    placeholder="April 20"
-                                    class="form-control dp"
-                                    formControlName="checkInDate"
-                                    bsDatepicker>
+                                <!-- <input type="text" name="text" placeholder="North Carolina" class="form-control "> -->
+                            </div>
+                            <div class="search-body" style="width: 20vw;">
+                                <h6>check in</h6>
+                                <div class="">
+                                    <input type="text" placeholder="Check In" class="form-control dp"
+                                        formControlName="checkInDate" bsDatepicker>
                                 </div>
-                                <div class="search-body pt-3 flex-grow-1">
-                                    <h6>check out</h6>
-                                    <input type="text"
-                                    placeholder="April 20"
-                                    class="form-control dp"
-                                    formControlName = "checkOutDate"
-                                    bsDatepicker>
+
+                            </div>
+                            <div class="search-body" style="width: 20vw;">
+                                <h6>check out</h6>
+                                <div class="">
+                                    <input type="text" placeholder="April 20" class="form-control dp"
+                                        formControlName="checkOutDate" bsDatepicker>
                                 </div>
-                                <div class="search-body">
-                                    <h6>Room Type</h6>
-                                    <div class="qty-box">
-                                       <select value="Private" formControlName = "typeOfTenant">
-                                            <option *ngFor="let item of roomsType" [value]="item.id">{{item.label}}</option>
-                                       </select>
-                                    </div>
+                            </div>
+                            <div class="search-body" style="width: 20vw; text-align: center;">
+                                <h6>Room Type</h6>
+                                <div class="qty-box">
+                                    <select value="Private" formControlName="typeOfTenant">
+                                        <option *ngFor="let item of roomsType" [value]="item.id">{{item.label}}</option>
+                                    </select>
                                 </div>
-                                <div class="search-body btn-search">
-                                    <div class="right-part">
-                                        <a href="#" class="btn btn-solid color1" (click)="onSearch()">search</a>
-                                    </div>
+                            </div>
+                            <div class="search-body btn-search">
+                                <div class="right-part">
+                                    <a id="searchBtn" class="btn btn-solid color1" (click)="onSearch()">search</a>
                                 </div>
                             </div>
                         </div>
@@ -116,24 +117,28 @@
         </div>
         <div class="slide-3" style="padding-left: 8%; padding-right: 8%;">
             <div class="image-container" style="display: flex; flex-wrap: wrap;">
-                <div class="special-box p-0" (click)="onNavigateToViewProperty()" style=" display: flex; flex-wrap: wrap; flex-basis: 30% !important; margin-right: 24px !important;" *ngFor = "let item of this.searchHotelList | async">
+                <div class="special-box p-0" (click)="onNavigateToViewProperty(item.propertyId)" style=" display: flex; flex-wrap: wrap; flex-basis: 30% !important; margin-right: 24px !important;" *ngFor = "let item of this.searchHotelList">
                     <div class="special-img">
-                        <a href="#">
-                            <img src="assets/images/hotel/room/1.jpg" class="img-fluid blur-up lazyload bg-img"
+                        <a>
+                            <img src="http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-7.jpeg" class="img-fluid blur-up lazyload bg-img"
                                 alt="">
                         </a>
                         <div class="label">
                             <i class="fas fa-percent"></i>
-                            <h3><del>$24</del> $20</h3>
+                            <h3><del>$0</del> ${{item.roomRate}}</h3>
                         </div>
                     </div>
                     <div class="special-content">
                         <a href="#">
                             <h5></h5>
                         </a>
+                        <ul>
+                            <li>{{item.propertyName}}</li>
+                            <li>{{item.address}}, {{item.state}}</li>
+                        </ul>
+
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has
-                            been the indu standard dummy text ever since the 1500s..............
+                            Property Description....
                         </p>
                         <div class="bottom-part">
                             <div class="rating">
@@ -153,5 +158,5 @@
           
         </div>
     </div>
-</section>
+</section> 
 <!-- special room section end -->
