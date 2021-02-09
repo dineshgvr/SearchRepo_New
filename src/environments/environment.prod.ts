@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  roomsType: [{id: 'private', label: 'Private'}, {id: 'shared', label: 'Shared'}]
 };

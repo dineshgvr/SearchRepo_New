@@ -1,0 +1,157 @@
+<section class="home_section hotel_layout slide-1 p-0">
+    <div>
+        <div class="home banner-container">
+            <div class="home-content">
+                <div>
+                    <h1>RoomsToInn</h1>
+                    <h5>RoomsToInn hotel</h5>
+                    <h2>welcome</h2>
+                    <a href="#" class="btn btn-solid ">book now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div>
+        <div class="home">
+            <img src="assets/images/hotel-bg.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+            <div class="home-content">
+                <div>
+                    <h1>rica</h1>
+                    <h5>rica hotel</h5>
+                    <h2>welcome</h2>
+                    <a href="#" class="btn btn-solid ">book now</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div>
+        <div class="home">
+            <img src="../assets/images/hotel-bg.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+            <div class="home-content">
+                <div>
+                    <h1>rica</h1>
+                    <h5>rica hotel</h5>
+                    <h2>welcome</h2>
+                    <a href="#" class="btn btn-solid ">book now</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</section>
+<!-- home section end -->
+
+
+<!-- search section start -->
+<section class="search-section" [formGroup]="searchForm">
+    <div class="container">
+        <div class="row">
+            <div class="">
+                <div class="search-panel" id="searchBar" style="box-shadow: 3px 0px 10px 4px grey;">
+                    <div class="search-section shadow">
+                        <div class="search-box">
+                            <div class="left-part flex-sm-row">
+                                <div class="search-body title-hotel pt-3 flex-grow-1">
+                                    <h6>hotel</h6>
+                                    <input type="text" name="text" placeholder="North Carolina" class="form-control ">
+                                </div>
+                                <div class="search-body pt-3 flex-grow-1" > 
+                                    <h6>check in</h6>
+                                    <input type="text"
+                                    placeholder="April 20"
+                                    class="form-control dp"
+                                    formControlName="checkInDate"
+                                    bsDatepicker>
+                                </div>
+                                <div class="search-body pt-3 flex-grow-1">
+                                    <h6>check out</h6>
+                                    <input type="text"
+                                    placeholder="April 20"
+                                    class="form-control dp"
+                                    formControlName = "checkOutDate"
+                                    bsDatepicker>
+                                </div>
+                                <div class="search-body">
+                                    <h6>Room Type</h6>
+                                    <div class="qty-box">
+                                       <select value="Private" formControlName = "typeOfTenant">
+                                            <option *ngFor="let item of roomsType" [value]="item.id">{{item.label}}</option>
+                                       </select>
+                                    </div>
+                                </div>
+                                <div class="search-body btn-search">
+                                    <div class="right-part">
+                                        <a href="#" class="btn btn-solid color1" (click)="onSearch()">search</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- search section end -->
+
+<!-- special room section start -->
+<section class="section-b-space special-section ratio2_3 animated-section">
+    <div class="animation-section">
+        <div class="cross po-1"></div>
+        <div class="cross po-2"></div>
+        <div class="cross po-3"></div>
+        <div class="round po-4"></div>
+        <div class="round po-5"></div>
+        <div class="round r-2 po-6"></div>
+        <div class="round r-2 po-7"></div>
+        <div class="round r-y po-8"></div>
+        <div class="round r-y po-9"></div>
+        <div class="square po-10"></div>
+        <div class="square po-11"></div>
+        <div class="square s-2 po-12"></div>
+    </div>
+    <div class="">
+        <div class="title-3">
+            <span class="title-label">our</span>
+            <h2>special room<span>special</span></h2>
+        </div>
+        <div class="slide-3" style="padding-left: 8%; padding-right: 8%;">
+            <div class="image-container" style="display: flex; flex-wrap: wrap;">
+                <div class="special-box p-0" (click)="onNavigateToViewProperty()" style=" display: flex; flex-wrap: wrap; flex-basis: 30% !important; margin-right: 24px !important;" *ngFor = "let item of this.searchHotelList | async">
+                    <div class="special-img">
+                        <a href="#">
+                            <img src="assets/images/hotel/room/1.jpg" class="img-fluid blur-up lazyload bg-img"
+                                alt="">
+                        </a>
+                        <div class="label">
+                            <i class="fas fa-percent"></i>
+                            <h3><del>$24</del> $20</h3>
+                        </div>
+                    </div>
+                    <div class="special-content">
+                        <a href="#">
+                            <h5></h5>
+                        </a>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has
+                            been the indu standard dummy text ever since the 1500s..............
+                        </p>
+                        <div class="bottom-part">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="package-cls">
+                                5 day | 4 night
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section>
+<!-- special room section end -->

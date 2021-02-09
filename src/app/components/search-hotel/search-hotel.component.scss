@@ -1,0 +1,42 @@
+.banner-container {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(../../../assets/images/exteranl-images/background.png);
+    background-size: cover;
+}
+
+
+.search-panel .search-section .search-box .left-part .search-body {
+    padding: 24px 10px 30px 10px;
+}
+
+.dp {
+    cursor: pointer;
+}
+
+select {
+    transition: border-color .65s ease-in-out; 
+    max-width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 1px solid #97c1c6;
+    border-radius: 4px;
+    color: #3e5a5e;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .8125rem;
+    font-weight: 800;
+    line-height: .75rem;
+    padding: 10px 24px;
+}
+
+input, h6 {
+    color: #3e5a5e !important;
+}
+.search-section {
+    margin-top: -80px;
+}
+
+.home_section .home .home-content  {
+    padding-top: 22px;
+}
