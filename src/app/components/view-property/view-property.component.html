@@ -6,7 +6,7 @@
                     <div class="hotel-name">
                         <div class="left-part">
                             <div class="top">
-                                <h2>sea view hotel</h2>
+                                <h2>{{this.propertyInfo.propertyName}}</h2>
                                 <div class="rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -19,14 +19,16 @@
                                     <a href="#" class="btn btn-solid"><i class="far fa-heart"></i> save</a>
                                 </div>
                             </div>
-                            <p>Mina Road, Bur Dubai, Dubai, United Arab Emirates</p>
+                            <p>
+                                {{this.propertyInfo.address}},{{this.propertyInfo.state}},{{this.propertyInfo.country}}
+                            </p>
                             <div class="facility-detail">
                                 <span>free wifi</span>
                                 <span>free breakfast</span>
                             </div>
                         </div>
                         <div class="right-part">
-                            <h2 class="price">$250 <span>/ per night</span></h2>
+                            <h2 class="price">${{propertyInfo.roomRate}} <span>/ per night</span></h2>
                             <a href="hotel-booking.html" class="btn btn-rounded btn-sm color1">book this now</a>
                         </div>
                     </div>
@@ -38,15 +40,24 @@
                         <div class="col-sm-12">
                             <div class="list-img arrow-dark zoom-gallery ratio3_2">
                                 <div class="slider-image">
-                    <ngx-slick-carousel class="carousel" 
-                                    #slickModal="slick-carousel" 
-                                    [config]="slideConfig">
-                    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-                          <img src="{{ slide.img }}" alt="" width="100%" style="border-radius:4px;">
-                    </div>
-                </ngx-slick-carousel>
+                                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel"
+                                        [config]="slideConfig">
+                                        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                                            <img src="{{ slide.img }}" alt="" width="100%" style="border-radius:4px;">
+                                        </div>
+                                    </ngx-slick-carousel>
                                 </div>
-                               <!-- <div class="slider-thumbnail"> 
+                                <div style="margin-top: -80px;">
+                                    <carousel style="height: 150px;" [images]="[
+                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-7.jpeg'},
+                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-1.jpeg'},
+                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-2.jpeg'},
+                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-3.jpeg'},
+                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-7.jpeg'}
+                                    ]">
+                                    </carousel>
+                                </div>
+                                <!-- <div class="slider-thumbnail"> 
                                     <div><span><img src="../assets/images/single-hotel/slider/6.jpg"
                                                 class="img-fluid blur-up lazyload bg-img" alt=""></span></div>
                                     <div><span><img src="../assets/images/single-hotel/slider/7.jpg"
@@ -68,11 +79,11 @@
                         </div>
                     </div>
                 </div>
-              <div class="description-section tab-section"> 
+                <div class="description-section tab-section">
                     <div class="menu-top">
                         <ul class="nav nav-tabs" id="top-tab" role="tablist">
-                            <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active"
-                                    href="#rooms">rooms</a></li>
+                            <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#rooms">rooms</a>
+                            </li>
                             <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#about">about</a></li>
                             <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#facility">facility</a>
                             </li>
@@ -86,11 +97,11 @@
                         <div class="description-details tab-content" id="top-tabContent">
                             <div class="menu-part tab-pane fade show active" id="rooms">
                                 <table class="rooms-box">
-                                    <tr>
+                                    <tr *ngFor="let item of roomsList; let i = index">
                                         <td>
-                                            <h6 class="room-title">Deluxe Room</h6>
+                                            <h6 class="room-title"></h6>
                                             <a href="#">
-                                                <img src="../assets/images/hotel/room/4.jpg"
+                                                <img src="http://roomstoinn.com:9090/downloadFile/{{item.roomPropId}}/{{this.roomsImagesList[i]}}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </a>
                                         </td>
@@ -135,127 +146,8 @@
                                         <td>
                                             <div class="price-details">
                                                 <div>
-                                                    <h6><del>$1250</del></h6>
-                                                    <h5>$1000</h5>
-                                                    <span>per night</span>
-                                                    <a href="hotel-booking.html"
-                                                        class="btn btn-rounded btn-sm color1">book now</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6 class="room-title">Suite Room</h6>
-                                            <a href="#">
-                                                <img src="../assets/images/hotel/room/5.jpg"
-                                                    class="img-fluid blur-up lazyload" alt="">
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <div class="room-detail">
-                                                <div class="row">
-                                                    <div class="col-6 p-0">
-                                                        <h6>Amenities</h6>
-                                                        <div class="facility-detail">
-                                                            <ul>
-                                                                <li><img src="../assets/images/icon/tour/bed.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    king/twin
-                                                                </li>
-                                                                <li><img src="../assets/images/icon/hotel/pool.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    Pool View</li>
-                                                                <li><img src="../assets/images/icon/hotel/shower.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    Shower
-                                                                </li>
-                                                                <li><img src="../assets/images/icon/hotel/television.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    LCD TV</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 p-0">
-                                                        <h6>inclusion</h6>
-                                                        <div class="facility-detail">
-                                                            <ul>
-                                                                <li><i class="fas fa-check"></i> Wi-Fi</li>
-                                                                <li><i class="fas fa-check"></i> Breakfast</li>
-                                                                <li><i class="fas fa-check"></i> free cancellation
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="price-details">
-                                                <div>
-                                                    <h6><del>$1350</del></h6>
-                                                    <h5>$1100</h5>
-                                                    <span>per night</span>
-                                                    <a href="hotel-booking.html"
-                                                        class="btn btn-rounded btn-sm color1">book now</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6 class="room-title">Royal Room</h6>
-                                            <a href="#">
-                                                <img src="../assets/images/hotel/room/6.jpg"
-                                                    class="img-fluid blur-up lazyload" alt="">
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <div class="room-detail">
-                                                <div class="row">
-                                                    <div class="col-6 p-0">
-                                                        <h6>Amenities</h6>
-                                                        <div class="facility-detail">
-                                                            <ul>
-                                                                <li><img src="../assets/images/icon/tour/bed.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    king/twin
-                                                                </li>
-                                                                <li><img src="../assets/images/icon/hotel/pool.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    Pool View</li>
-                                                                <li><img src="../assets/images/icon/hotel/shower.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    Shower
-                                                                </li>
-                                                                <li><img src="../assets/images/icon/hotel/television.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    LCD TV</li>
-                                                                <li><img src="../assets/images/icon/hotel/couch.png"
-                                                                        class="img-fluid blur-up lazyload" alt="">
-                                                                    couch
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 p-0">
-                                                        <h6>inclusion</h6>
-                                                        <div class="facility-detail">
-                                                            <ul>
-                                                                <li><i class="fas fa-check"></i> Wi-Fi</li>
-                                                                <li><i class="fas fa-check"></i> Breakfast</li>
-                                                                <li><i class="fas fa-check"></i> Dinner & lunch</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="price-details">
-                                                <div>
-                                                    <h6><del>$1950</del></h6>
-                                                    <h5>$1800</h5>
+                                                    <h6><del></del></h6>
+                                                    <h5>${{item.roomRate}}</h5>
                                                     <span>per night</span>
                                                     <a href="hotel-booking.html"
                                                         class="btn btn-rounded btn-sm color1">book now</a>
@@ -437,49 +329,49 @@
                 </div>
                 <div class="special-section related-box ratio3_2 grid-box" style="display: flex;
                 flex-wrap: wrap; justify-content: space-between;">
-                            <div class="special-box p-0" style="width: 45%;" *ngFor="let item of [1, 2, 3, 4]">
-                                <div class="special-img">
-                                    <a href="#">
-                                        <img src="../assets/images/hotel/room/14.jpg"
-                                            class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </a>
-                                    <div class="top-icon">
-                                        <a href="#" class="" data-bs-toggle="tooltip" data-placement="top" title=""
-                                            data-original-title="Add to Wishlist">
-                                            <i class="far fa-heart"></i>
-                                        </a>
-                                    </div>
+                    <div class="special-box p-0" style="width: 45%;" *ngFor="let item of [1, 2, 3, 4]">
+                        <div class="special-img">
+                            <a href="#">
+                                <img src="../assets/images/hotel/room/14.jpg" class="img-fluid blur-up lazyload bg-img"
+                                    alt="">
+                            </a>
+                            <div class="top-icon">
+                                <a href="#" class="" data-bs-toggle="tooltip" data-placement="top" title=""
+                                    data-original-title="Add to Wishlist">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="special-content">
+                            <a href="#">
+                                <h5>the venetian <span><i class="fas fa-map-marker-alt"></i> Newyork</span>
+                                </h5>
+                            </a>
+                            <p>
+                                Lorem Ipsum is simply dummy text the printing Ipsum is simply Lorem Ipsum is
+                                simply dummy text of the ..............
+                            </p>
+                            <div class="bottom-section">
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>26412 review</span>
                                 </div>
-                                <div class="special-content">
-                                    <a href="#">
-                                        <h5>the venetian <span><i class="fas fa-map-marker-alt"></i> Newyork</span>
-                                        </h5>
-                                    </a>
-                                    <p>
-                                        Lorem Ipsum is simply dummy text the printing Ipsum is simply Lorem Ipsum is
-                                        simply dummy text of the ..............
-                                    </p>
-                                    <div class="bottom-section">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <span>26412 review</span>
-                                        </div>
-                                        <div class="price">
-                                            <del>$1300</del>
-                                            <span>$1245</span>
-                                            <div class="facility-detail">
-                                                <span>swimming</span>
-                                                <span>parking</span>
-                                            </div>
-                                        </div>
+                                <div class="price">
+                                    <del>$1300</del>
+                                    <span>$1245</span>
+                                    <div class="facility-detail">
+                                        <span>swimming</span>
+                                        <span>parking</span>
                                     </div>
                                 </div>
                             </div>
-                      
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4" id="booking">
@@ -506,17 +398,10 @@
                                 </div>
                             </div>
                             <div class="book-btn-section">
-                                <input type="text"
-                                placeholder="April 20"
-                                class="form-control dp"
-                                bsDatepicker>
-                                <input type="text"
-                                placeholder="April 20"
-                                class="form-control dp"
-                                bsDatepicker>
+                                <input type="text" placeholder="April 20" class="form-control dp" bsDatepicker>
+                                <input type="text" placeholder="April 20" class="form-control dp" bsDatepicker>
                                 <div class="rooms-section">
-                                    <input type="text" class="form-control open-select"
-                                        placeholder="rooms & guests">
+                                    <input type="text" class="form-control open-select" placeholder="rooms & guests">
                                     <div class="selector-box">
                                         <div class="room-cls">
                                             <label class="title_room">room 1</label>

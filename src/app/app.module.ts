@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +32,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ReactiveFormsModule,
     HttpClientModule,
     BsDatepickerModule.forRoot(),
-    SlickCarouselModule
+    SlickCarouselModule,
     // BsDropdownModule,
+    IvyCarouselModule
   ],
   providers: [
     { provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }

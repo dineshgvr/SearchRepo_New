@@ -45,6 +45,7 @@ export class SearchHotelComponent implements OnInit {
     }
     this._searchHotelService.getSearchHotelList(searchFormValues).subscribe((response: any) => {
       this.searchHotelList = response;
+      console.log(this.searchHotelList);
     });
     //   this._searchHotelService.getSearchHotelList(this.searchForm.value)
     //     .pipe(map((result: any) => {
