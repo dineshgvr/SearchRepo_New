@@ -47,14 +47,8 @@
                                         </div>
                                     </ngx-slick-carousel>
                                 </div>
-                                <div style="margin-top: -80px;">
-                                    <carousel style="height: 150px;" [images]="[
-                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-7.jpeg'},
-                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-1.jpeg'},
-                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-2.jpeg'},
-                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-3.jpeg'},
-                                    {path: 'http://roomstoinn.com:9090/downloadFile/PR-CO-3/photo-7.jpeg'}
-                                    ]">
+                                <div>
+                                    <carousel style="display: inline-block;" autoplay=true cellsToShow = 4 [images]="smallSlides">
                                     </carousel>
                                 </div>
                                 <!-- <div class="slider-thumbnail"> 
@@ -112,7 +106,10 @@
                                                         <h6>Amenities</h6>
                                                         <div class="facility-detail">
                                                             <ul>
-                                                                <li><img src="../assets/images/icon/tour/bed.png"
+                                                                <li>
+                                                                    <!-- {{this.getRoomAmenititesByRoomId(item.roomId) | async}} -->
+                                                                </li>
+                                                                <!-- <li><img src="../assets/images/icon/tour/bed.png"
                                                                         class="img-fluid blur-up lazyload" alt="">
                                                                     king/twin
                                                                 </li>
@@ -126,7 +123,7 @@
                                                                 <li><img src="../assets/images/icon/hotel/couch.png"
                                                                         class="img-fluid blur-up lazyload" alt="">
                                                                     couch
-                                                                </li>
+                                                                </li> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -149,8 +146,7 @@
                                                     <h6><del></del></h6>
                                                     <h5>${{item.roomRate}}</h5>
                                                     <span>per night</span>
-                                                    <a href="hotel-booking.html"
-                                                        class="btn btn-rounded btn-sm color1">book now</a>
+                                                    <a (click)="bookRoom()" class="btn btn-rounded btn-sm color1">book now</a>
                                                 </div>
                                             </div>
                                         </td>

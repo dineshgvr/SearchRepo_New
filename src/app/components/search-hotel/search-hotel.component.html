@@ -120,7 +120,7 @@
                 <div class="special-box p-0" (click)="onNavigateToViewProperty(item.propertyId)" style=" display: flex; flex-wrap: wrap; flex-basis: 30% !important; margin-right: 24px !important;" *ngFor = "let item of this.searchHotelList">
                     <div class="special-img">
                         <a>
-                            <img src="http://roomstoinn.com:9090/downloadFile/PR-CO-3/{{item.masterImage}}" class="img-fluid blur-up lazyload bg-img"
+                            <img  src="http://roomstoinn.com:9090/downloadFile/{{item.propertyId}}/{{item.masterImage}}" class="img-fluid blur-up lazyload bg-img"
                                 alt="">
                         </a>
                         <div class="label">

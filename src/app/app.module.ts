@@ -16,13 +16,15 @@ import { HttpClientModule} from '@angular/common/http';
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { BookRoomComponent } from './components/book-room/book-room.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchHotelComponent,
     FooterComponent,
-    ViewPropertyComponent
+    ViewPropertyComponent,
+    BookRoomComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
   providers: [
     { provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }
   ],
+  exports: [SlickCarouselModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

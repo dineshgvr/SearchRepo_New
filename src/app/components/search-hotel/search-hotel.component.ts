@@ -43,25 +43,11 @@ export class SearchHotelComponent implements OnInit {
       checkOutDate: this.convertDateToString(this.searchForm.value.checkOutDate),
       typeOfTenant: this.searchForm.value.typeOfTenant
     }
+    localStorage.removeItem("checkIn-Info");
+    localStorage.setItem("checkIn-Info", JSON.stringify(this.searchForm.value));
     this._searchHotelService.getSearchHotelList(searchFormValues).subscribe((response: any) => {
       this.searchHotelList = response;
-      console.log(this.searchHotelList);
     });
-    //   this._searchHotelService.getSearchHotelList(this.searchForm.value)
-    //     .pipe(map((result: any) => {
-    //       return result.map((inner: any) => {
-    //         return inner.propertyId;
-    //       })
-    //     }), concatMap((inner: any) => { 
-    //       return this._searchHotelService.getpropertyImages(inner);
-    // }, catchError((error: any) => console.log(error)))
-    //   debugger
-    //   this._searchHotelService.getpropertyImages(hotel.propertyId).subscribe((response: any) => console.log('inner Response', response));
-    // })).subscribe();
-
-    // let urls = this._searchHotelService.getSearchHotelList(this.searchForm.value).pipe(pluck('propertyId'));
-    // from(urls).subscribe((response: any) => console.log(response))
-    // this._searchHotelService.getSearchHotelList(this.searchForm.value).pipe
   }
 
   onGetPropertyImages(propertyId: string) {

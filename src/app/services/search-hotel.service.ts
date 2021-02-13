@@ -31,4 +31,8 @@ export class SearchHotelService {
   getPropertyRooms(propertyId: string): Observable<any> {
     return this._httpClient.get('http://roomstoinn.com:9090/searchProperty/' + propertyId);
   }
+
+  getRoomAmenititesByRoomId(roomId: string): Observable<any> {
+    return this._httpClient.get('http://roomstoinn.com:9090/getRoomAmenitesById/' + roomId);
+  }
 }
