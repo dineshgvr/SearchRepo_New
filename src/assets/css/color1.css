@@ -11724,25 +11724,25 @@ section .black-layer {
         margin-top: 10px; }
     .review-section .review_box .flight_detail.payment-gateway form .form-control {
       border-color: rgba(0, 0, 0, 0.09); }
-    .review-section .review_box .flight_detail.payment-gateway form .form-group {
+    .review-section .review_box .flight_detail.payment-gateway .form-group {
       position: relative; }
-      .review-section .review_box .flight_detail.payment-gateway form .form-group label {
+      .review-section .review_box .flight_detail.payment-gateway .form-group label {
         text-transform: capitalize;
         font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))); }
-      .review-section .review_box .flight_detail.payment-gateway form .form-group img {
+      .review-section .review_box .flight_detail.payment-gateway .form-group img {
         height: 23px;
         position: absolute;
-        right: 10px;
+        right: 20px;
         bottom: 8px; }
-    .review-section .review_box .flight_detail.payment-gateway form .payment-btn {
+    .review-section .review_box .flight_detail.payment-gateway .payment-btn {
       text-align: right;
       margin-top: 20px; }
-    .review-section .review_box .flight_detail.payment-gateway form.wallet-section h6 {
+    .review-section .review_box .flight_detail.payment-gateway .wallet-section h6 {
       text-transform: uppercase; }
-    .review-section .review_box .flight_detail.payment-gateway form.wallet-section .row {
+    .review-section .review_box .flight_detail.payment-gateway .wallet-section .row {
       margin-left: 15px;
       margin-top: 20px; }
-      .review-section .review_box .flight_detail.payment-gateway form.wallet-section .row .form-check .form-check-label {
+      .review-section .review_box .flight_detail.payment-gateway .wallet-section .row .form-check .form-check-label {
         margin-bottom: 10px;
         font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))); }
   .review-section .review_box + .review_box {

@@ -17,6 +17,8 @@ import { ViewPropertyComponent } from './components/view-property/view-property.
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { BookRoomComponent } from './components/book-room/book-room.component';
+import { RoomPaymentGatewayComponent } from './components/room-payment-gateway/room-payment-gateway.component';
+import { ConfirmedPaymentComponent } from './components/confirmed-payment/confirmed-payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { BookRoomComponent } from './components/book-room/book-room.component';
     SearchHotelComponent,
     FooterComponent,
     ViewPropertyComponent,
-    BookRoomComponent
+    BookRoomComponent,
+    RoomPaymentGatewayComponent,
+    ConfirmedPaymentComponent
   ],
   imports: [
     CommonModule,

@@ -35,4 +35,8 @@ export class SearchHotelService {
   getRoomAmenititesByRoomId(roomId: string): Observable<any> {
     return this._httpClient.get('http://roomstoinn.com:9090/getRoomAmenitesById/' + roomId);
   }
+
+  getRoomInfoByRoomId(roomId: string) {
+    return this._httpClient.get('http://roomstoinn.com:9090/getRoomDetailsById/'+roomId);
+  }
 }

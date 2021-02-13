@@ -1,5 +1,5 @@
 <section class="breadcrumb-section pt-0">
-    <img src="assets/images/inner-pages/bg-bread.jpg" class="bg-img img-fluid blur-up lazyload" alt="">
+    <img style="width: 100%;" src="http://roomstoinn.com:9090/downloadFile/{{propertyId}}/{{masterImage}}" class="bg-img img-fluid blur-up lazyload" alt="">
     <div class="breadcrumb-content">
         <div>
             <h2>review</h2>
@@ -13,9 +13,9 @@
         </div>
     </div>
     <div class="title-breadcrumb">Rooms To Inn</div>
-  </section>
-  
-  <section class="section-b-space bg-inner animated-section">
+</section>
+
+<section class="section-b-space bg-inner animated-section">
     <div class="animation-section">
         <div class="cross po-2"></div>
         <div class="round po-5"></div>
@@ -28,62 +28,63 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
-                <div class="guest-detail">
+                <div class="guest-detail" *ngIf="!isShowpayment" [formGroup]="travellerInfoForm">
                     <h2>Traveller Information</h2>
-                    
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col first-name">
-                                    <label>first name</label>
-                                    <input type="text" id="firstName" class="form-control" placeholder="First name">
-                                </div>
-                                <div class="col">
-                                    <label>last name</label>
-                                    <input type="text" id="lastName" class="form-control" placeholder="Last name">
-                                </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col first-name">
+                                <label>first name</label>
+                                <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First name">
+                            </div>
+                            <div class="col">
+                                <label>last name</label>
+                                <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last name">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">Booking confirmation will be sent to
-                                this email ID.</small>
-                        </div>
-                        <div class="form-group">
-                            <label>contact info</label>
-                            <input id="mobile-no" type="tel" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">special request</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                placeholder="e.g.. early check-in, airport transfer"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">have a coupon code?</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Promo Code">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">apply</span>
-                                </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" formControlName="emailAddress" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">Booking confirmation will be sent to
+                            this email ID.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>contact info</label>
+                        <input id="mobile-no" type="tel" formControlName="contactInfo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">special request</label>
+                        <textarea class="form-control" formControlName="specialRequest" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="e.g.. early check-in, airport transfer"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">have a coupon code?</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Promo Code">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">apply</span>
                             </div>
                         </div>
-                        <div class="submit-btn">
-                            <button class="btn btn-solid" (click)="paymentgateway()"
-                                type="button">pay now</button>
-                        </div>
-                    
+                    </div>
+                    <div class="submit-btn">
+                        <button class="btn btn-solid" [disabled]="travellerInfoForm.invalid" (click)="paymentgateway()" type="button">pay now</button>
+                    </div>
+
                 </div>
+
+                <app-room-payment-gateway *ngIf="isShowpayment"></app-room-payment-gateway>
             </div>
             <div class="col-lg-5 booking-order">
                 <div class="summery-box">
                     <h2>booking summery</h2>
                     <div class="hotel-section">
                         <div class="hotel-img">
-                            <img src="assets/images/hotel/room/1.jpg" class="img-fluid blur-up lazyload" alt="">
+                            <img src="http://roomstoinn.com:9090/downloadFile/{{propertyId}}/{{masterImage}}" class="img-fluid blur-up lazyload" alt="">
                         </div>
                         <div class="hotel-detail">
-                            <h6>sea view hotel</h6>
-                            <p>Mina Road, Bur Dubai, Dubai</p>
+                            <h6>{{this.propertyInfo.propertyName}}</h6>
+                            <p>{{propertyInfo.address}}, {{propertyInfo.state}}, {{propertyInfo.country}}</p>
                         </div>
                     </div>
                     <div class="summery-section">
@@ -121,15 +122,15 @@
                                 <tbody>
                                     <tr>
                                         <td>base price</td>
-                                        <td>$2510</td>
+                                        <td>{{roomRate}}</td>
                                     </tr>
                                     <tr>
                                         <td>promo discount</td>
-                                        <td>- $250</td>
+                                        <td>- $0</td>
                                     </tr>
                                     <tr>
                                         <td>tax & service fees</td>
-                                        <td>+ $150</td>
+                                        <td>+ $0</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -141,7 +142,7 @@
                                 <tbody>
                                     <tr>
                                         <td>payable amount</td>
-                                        <td class="amount">$2410</td>
+                                        <td class="amount">${{roomRate}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -151,4 +152,4 @@
             </div>
         </div>
     </div>
-  </section>
+</section>

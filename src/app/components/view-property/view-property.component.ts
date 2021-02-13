@@ -41,6 +41,7 @@ export class ViewPropertyComponent implements OnInit {
 
   getPropertyInfo(propertyId: string) {
     this.searchHotelService.getpropertyInfo(propertyId).subscribe((response: any) => {
+      console.log('axxx', response);
       this.propertyInfo = {
         propertyName: response.propertyName,
         address: response.address,
@@ -123,8 +124,8 @@ export class ViewPropertyComponent implements OnInit {
     });
   }
 
-  bookRoom() {
-    this._router.navigate(['/book-room', this.propertyId]);
+  bookRoom(roomId: string) {
+    this._router.navigate(['/book-room', this.propertyId, roomId]);
   }
 
 }

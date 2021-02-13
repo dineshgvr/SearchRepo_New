@@ -106,10 +106,7 @@
                                                         <h6>Amenities</h6>
                                                         <div class="facility-detail">
                                                             <ul>
-                                                                <li>
-                                                                    <!-- {{this.getRoomAmenititesByRoomId(item.roomId) | async}} -->
-                                                                </li>
-                                                                <!-- <li><img src="../assets/images/icon/tour/bed.png"
+                                                                <li><img src="../assets/images/icon/tour/bed.png"
                                                                         class="img-fluid blur-up lazyload" alt="">
                                                                     king/twin
                                                                 </li>
@@ -123,7 +120,7 @@
                                                                 <li><img src="../assets/images/icon/hotel/couch.png"
                                                                         class="img-fluid blur-up lazyload" alt="">
                                                                     couch
-                                                                </li> -->
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -146,7 +143,8 @@
                                                     <h6><del></del></h6>
                                                     <h5>${{item.roomRate}}</h5>
                                                     <span>per night</span>
-                                                    <a (click)="bookRoom()" class="btn btn-rounded btn-sm color1">book now</a>
+    
+                                                    <a (click)="bookRoom(item.roomId)" class="btn btn-rounded btn-sm color1">book now</a>
                                                 </div>
                                             </div>
                                         </td>
